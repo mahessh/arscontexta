@@ -4,6 +4,12 @@
 # Runs as PostToolUse hook on Write events.
 # Receives tool input as JSON on stdin.
 
+# Only run in Ars Contexta vaults
+if [ ! -f ops/config.yaml ] && [ ! -f .claude/hooks/write-validate.sh ]; then
+  cat > /dev/null  # drain stdin
+  exit 0
+fi
+
 # Read JSON from stdin
 INPUT=$(cat)
 

@@ -3,6 +3,12 @@
 # Persists session state on session end.
 # Runs as Stop hook. Receives session info as JSON on stdin.
 
+# Only run in Ars Contexta vaults
+if [ ! -f ops/config.yaml ] && [ ! -f .claude/hooks/session-capture.sh ]; then
+  cat > /dev/null  # drain stdin
+  exit 0
+fi
+
 # Read JSON from stdin
 INPUT=$(cat)
 

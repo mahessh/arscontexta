@@ -2,6 +2,11 @@
 # Ars Contexta — Session Orientation Hook
 # Injects workspace structure, identity, methodology, and maintenance signals at session start.
 
+# Only run in Ars Contexta vaults
+if [ ! -f ops/config.yaml ] && [ ! -f .claude/hooks/session-orient.sh ]; then
+  exit 0
+fi
+
 echo "## Workspace Structure"
 echo ""
 

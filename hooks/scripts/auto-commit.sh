@@ -10,6 +10,11 @@ set -e
 # Change to project directory
 cd "${CLAUDE_PROJECT_DIR:-$(pwd)}"
 
+# Only run in Ars Contexta vaults
+if [ ! -f ops/config.yaml ] && [ ! -f .claude/hooks/auto-commit.sh ]; then
+  exit 0
+fi
+
 # Only commit if inside a git repository
 if ! git rev-parse --is-inside-work-tree &>/dev/null; then
   exit 0
