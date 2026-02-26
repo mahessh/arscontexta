@@ -4,7 +4,6 @@ description: Query the bundled research knowledge graph for methodology guidance
 version: "1.0"
 generated_from: "arscontexta-v1.6"
 context: fork
-model: opus
 allowed-tools: Read, Grep, Glob, mcp__qmd__search, mcp__qmd__vector_search, mcp__qmd__deep_search, mcp__qmd__get, mcp__qmd__multi_get
 argument-hint: "[question about knowledge systems or methodology]"
 ---

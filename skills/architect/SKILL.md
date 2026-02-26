@@ -5,7 +5,6 @@ version: "1.0"
 generated_from: "arscontexta-v1.6"
 user-invocable: true
 context: fork
-model: opus
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash, mcp__qmd__search, mcp__qmd__vector_search, mcp__qmd__deep_search, mcp__qmd__get, mcp__qmd__multi_get
 argument-hint: "[optional: specific area to focus on, e.g. 'schema', 'processing', 'MOC structure']"
 ---
