@@ -4,7 +4,6 @@ description: Schema validation for notes. Checks against domain-specific templat
 user-invocable: true
 allowed-tools: Read, Grep, Glob
 context: fork
-model: sonnet
 ---
 
 ## Runtime Configuration (Step 0 — before any processing)

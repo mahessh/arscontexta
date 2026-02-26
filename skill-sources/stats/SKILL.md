@@ -5,7 +5,6 @@ version: "1.0"
 generated_from: "arscontexta-v1.6"
 user-invocable: true
 context: fork
-model: sonnet
 allowed-tools: Read, Grep, Glob, Bash
 argument-hint: "[--share] — optional flag for compact shareable output"
 ---

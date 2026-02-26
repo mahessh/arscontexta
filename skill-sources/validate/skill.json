@@ -11,8 +11,7 @@
   "entry": "SKILL.md",
   "platform_hints": {
     "claude-code": {
-      "context": "fork",
-      "model": "sonnet"
+      "context": "fork"
     }
   }
 }
