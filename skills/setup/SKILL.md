@@ -224,6 +224,12 @@ As the user talks, passively extract signals for dimensions. Do not ask about di
 | "I hate losing context between sessions" | Session handoff, strong orient phase | High |
 | "AI should handle the organizing" | Full automation | High |
 | "I want full control" | Manual/convention, light automation | High |
+| "Define who can decide what" | Governance space, decision authority | High |
+| "Intake process" or "request intake" | Governance space, triage workflows | High |
+| "Multiple stakeholders review" | Governance space, multi-role processes | High |
+| "SLAs" or "response times" | Governance space, operational commitments | Medium |
+| "Escalation paths" | Governance space, structured decision-making | Medium |
+| "Platform governance" or "operating model" | Governance space | High |
 
 **Anti-signals -- patterns that seem like signals but mislead:**
 
@@ -554,7 +560,13 @@ engine_version: "1.0.0"
 - [x] session-rhythm -- always included (always)
 - [x] templates -- always included (always)
 - [x] ethical-guardrails -- always included (always)
-[List all conditional blocks with inclusion/exclusion rationale]
+- [ ] atomic-notes -- [include if granularity = atomic]
+- [ ] mocs -- [include if navigation >= 3-tier or volume >= moderate]
+- [ ] personality -- [include if personality signals detected]
+- [ ] self-space -- [include if self-space opted in]
+- [ ] semantic-search -- [include if linking includes implicit]
+- [ ] multi-domain -- [include if multi-domain signals detected]
+- [ ] governance -- [include if intake workflows, multi-role review, decision authority, SLAs, or escalation paths detected]
 
 ## Coherence Validation Results
 - Hard constraints checked: [count]. Violations: [none / details]
@@ -629,6 +641,13 @@ Step 1: Read generator template for the platform.
 Step 2: Select feature blocks from ${CLAUDE_PLUGIN_ROOT}/generators/features/.
   Always-included blocks (11): wiki-links, processing-pipeline, schema, maintenance, self-evolution, methodology-knowledge, session-rhythm, templates, ethical-guardrails, helper-functions, graph-analysis
   Conditional blocks: based on derived dimensions (see Active Feature Blocks in derivation.md)
+    - atomic-notes: when granularity = atomic
+    - mocs: when navigation >= 3-tier or volume >= moderate
+    - personality: when personality signals detected
+    - self-space: when self-space opted in
+    - semantic-search: when linking includes implicit
+    - multi-domain: when multi-domain signals detected
+    - governance: when signals include intake workflows, multi-role review, decision authority, SLAs, or escalation paths
 
 Step 3: Process blocks SEQUENTIALLY. For each selected block:
   a. Read the block file
@@ -651,10 +670,11 @@ Step 4: Compose in canonical block order:
   11. personality -- Voice and identity (if active)
   12. templates -- Template usage
   13. multi-domain -- Cross-domain rules (if active)
-  14. self-space -- Agent identity and memory (if active)
-  15. ethical-guardrails -- Behavioral constraints
-  16. helper-functions -- Utility scripts (always included)
-  17. graph-analysis -- Graph intelligence and query patterns (always included)
+  14. governance -- Process frameworks and decision authority (if active)
+  15. self-space -- Agent identity and memory (if active)
+  16. ethical-guardrails -- Behavioral constraints
+  17. helper-functions -- Utility scripts (always included)
+  18. graph-analysis -- Graph intelligence and query patterns (always included)
 
 Step 5: Cross-reference elimination.
   If a block is excluded, scan remaining blocks for references to excluded concepts and remove or rephrase:
@@ -662,6 +682,7 @@ Step 5: Cross-reference elimination.
   - mocs excluded -> simplify "topic MOCs" to "topic organization"
   - self-space excluded -> references to self/identity.md route to ops/ equivalents
   - atomic-notes excluded -> simplify atomicity references to general note guidance
+  - governance excluded -> references to governance/ route to ops/ or notes/ as appropriate
   - multi-domain excluded -> remove cross-domain references
 
 Step 6: Add required sections that are NOT from feature blocks:
